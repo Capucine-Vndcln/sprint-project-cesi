@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <! -- Feuille de Style CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <title>JS-API - Sprint Project</title>
+    <link rel="icon" type="image/ico" href="images/black-hand.ico">
+</head>
+<body>
+    <! -- Structure HTML -->
+    	<header class="header">
+            <img src="images/hearts.png" alt="logo"></img>
+    	</header>
+        <h1>Savez-vous vraiment ce qu'il se passe actuellement dans le monde ?</h1>
+    	<section class="section">
+    		<div class="API-position">
+                <h2>Les dernières informations</h2>
+                <div id="lastNews"></div>
+            </div>
+    	</section>
+        <br>
+        <button class="trigger">Cliquez ici pour voir ma fonction JS</button>
+            <div class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Cliquez <a href="https://blacklivesmatter.com/">ici</a> pour voir le site de la communauté !</h3>
+                </div>
+            </div>
+    	<footer class="footer">
+    		<div class="footer-items">
+    			<a class="first-item" href="https://twitter.com/hashtag/BlackLivesMatter?src=hashtag_click" title="Top Tweets avec le #BlackLivesMatter" target="_blank">#BlackLivesMatter</a>
+    		</div>
+            <div class="footer-items">
+                <div class="middle-item"><a href="https://twitter.com/blklivesmatter"><img src="images/picto-twitter.png" alt="#BlackLivesMatter sur Twitter"></a><a href="https://www.instagram.com/blklivesmatter/"><img src="images/picto-insta.png" alt="#BlackLivesMatter sur Instagram"></a><a href="https://www.youtube.com/results?search_query=black+lives+matter"><img src="images/picto-youtube.png" alt="#BlackLivesMatter sur Youtube"></a></div>
+            </div>
+    		<div class="footer-items">
+    			<a class="last-item" href="https://github.com/Capucine-Vndcln/" title="Profil Github de Capucine Vandercoilden" target="_blank">© 2020 - Capucine Vandercoilden</a>
+    		</div>
+    		</div>
+    	</footer>
+	<! -- Code JS -->
+    <script type="text/javascript">
+
+    /*
+    Utilisation du fetch avec then et catch
+    */
+        let apiKey = "d11e16e7af99459687bd2dde20dc5c62"; 
+
+        var url = "http://newsapi.org/v2/everything?q=blacklivesmatter&from=2020-05-04&sortBy=publishedAt&apiKey=d11e16e7af99459687bd2dde20dc5c62";
+
+        fetch(url)
+        .then(response => response.json())
+        .then(response => {
+            // Code éxécuté quand vous recevez la réponse
+            console.log(response);
+           
+        let div = document.getElementById('lastNews');
+            for(let i = 0; i < response.articles.length; i++){
+                let article = response.articles[i]
+
+                console.log(article)
+
+            }
+
+            //Visualisation du tableau des cinq dernières news
+                newsUn = document.createElement('response.article');
+                lastNews.appendChild(newsUn);
+                newsUn.innerHTML = 'AUTHOR : ' + response.articles[0].author + '\nTITLE : ' + response.articles[0].title + '\nDESCRIPTION : ' + response.articles[0].description;
+
+                divUn = document.createElement('div');
+                divUn.innerHTML = newsUn;
+                divUn.appendChild(newsUn);
+                lastNews.appendChild(divUn);
+                divUn.style.border = 'solid', '3px', 'white';
+                divUn.style.padding = '30px';
+                divUn.style.margin = '10px';
+
+                newsDeux = document.createElement('response.article');
+                lastNews.appendChild(newsDeux);
+                newsDeux.innerHTML = 'AUTHOR : ' + response.articles[1].author + '\nTITLE : ' + response.articles[1].title + '\nDESCRIPTION : ' + response.articles[1].description;
+
+                divDeux = document.createElement('div');
+                divDeux.innerHTML = newsDeux;
+                divDeux.appendChild(newsDeux);
+                lastNews.appendChild(divDeux);
+                divDeux.style.border = 'solid', '3px', 'white';
+                divDeux.style.padding = '30px';
+                divDeux.style.margin = '10px';
+
+                newsTrois = document.createElement('response.article');
+                lastNews.appendChild(newsTrois);
+                newsTrois.innerHTML = 'AUTHOR : ' + response.articles[2].author + '\nTITLE : ' + response.articles[2].title + '\nDESCRIPTION : ' + response.articles[2].description;
+
+                divTrois = document.createElement('div');
+                divTrois.innerHTML = newsTrois;
+                divTrois.appendChild(newsTrois);
+                lastNews.appendChild(divTrois);
+                divTrois.style.border = 'solid', '3px', 'white';
+                divTrois.style.padding = '30px';
+                divTrois.style.margin = '10px';
+
+                newsQuatre = document.createElement('response.article');
+                lastNews.appendChild(newsQuatre);
+                newsQuatre.innerHTML = 'AUTHOR : ' + response.articles[3].author + '\nTITLE : ' + response.articles[3].title + '\nDESCRIPTION : ' + response.articles[3].description;
+
+                divQuatre = document.createElement('div');
+                divQuatre.innerHTML = newsQuatre;
+                divQuatre.appendChild(newsQuatre);
+                lastNews.appendChild(divQuatre);
+                divQuatre.style.border = 'solid', '3px', 'white';
+                divQuatre.style.padding = '30px';
+                divQuatre.style.margin = '10px';
+
+                newsCinq = document.createElement('response.article');
+                lastNews.appendChild(newsCinq);
+                newsCinq.innerHTML = 'AUTHOR : ' + response.articles[4].author + '\nTITLE : ' + response.articles[4].title + '\nDESCRIPTION : ' +response.articles[4].description;
+
+                divCinq = document.createElement('div');
+                divCinq.innerHTML = newsCinq;
+                divCinq.appendChild(newsCinq);
+                lastNews.appendChild(divCinq);
+                divCinq.style.border = 'solid', '3px', 'white';
+                divCinq.style.padding = '30px';
+                divCinq.style.margin = '10px';
+        })
+        .catch(error => console.error('Erreur : ' + error));
+
+
+    /* Code éxécuté pour le modal
+    */
+
+        var modal = document.querySelector('.modal');
+        var trigger = document.querySelector('.trigger');
+        var closeButton = document.querySelector('.close-button');
+
+        function toggleModal() {
+            modal.classList.toggle('show-modal');
+        }
+
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+
+        trigger.addEventListener('click', toggleModal);
+        closeButton.addEventListener('click', toggleModal);
+        window.addEventListener('click', windowOnClick);
+        
+    </script>
+</body>
+</html>
